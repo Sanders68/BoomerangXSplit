@@ -2,24 +2,36 @@
 
 state("BOOMERANG X")
 {
-    int levelindex : "UnityPlayer.dll", 0x013A7FE0, 0x84, 0x4, 0xDC, 0x0, 0x44;
-    int endgem  : "mono-2.0-bdwgc.dll", 0x003A0574, 0xB3C, 0x20, 0x17;
-    int introisplaying : "mono-2.0-bdwgc.dll", 0x003A0574, 0xB3C, 0x20, 0x1F5;
-    int inmenu : "mono-2.0-bdwgc.dll", 0x003A0574, 0xB44, 0x35C;
+    int LevelIndex : "UnityPlayer.dll", 0x013A7FE0, 0x84, 0x4, 0xDC, 0x0, 0x44;
+    int EndGem  : "mono-2.0-bdwgc.dll", 0x003A0574, 0xB3C, 0x20, 0x157;
+    int IsIntroPlaying : "mono-2.0-bdwgc.dll", 0x003A0574, 0xB3C, 0x20, 0x1F5;
+    int InMenu : "mono-2.0-bdwgc.dll", 0x003A0574, 0xB44, 0x35C;
 }
 
 isLoading
 {
-  return current.inmenu == 0;
+  return current.InMenu == 0 && current.EndGem != 1;
 }
 
 start
 {
-    return (current.introisplaying == 0 && old.introisplaying == 1);
-    
+    return current.IsIntroPlaying == 0 && old.IsIntroPlaying == 1;
 }
 
 split
 {
-    return (current.levelindex != (old.levelindex) && current.levelindex == 2 | 4 | 6 | 7 | 9 | 11 | 13 | 14 | 16 | 17 | 19 | 20);
+    return current.EndGem == 1 && current.EndGem != old.EndGem || current.LevelIndex != old.LevelIndex && 
+    (
+        current.LevelIndex == 2 || 
+        current.LevelIndex == 4 ||
+        current.LevelIndex == 6 ||
+        current.LevelIndex == 7 ||
+        current.LevelIndex == 9 ||
+        current.LevelIndex == 11 ||
+        current.LevelIndex == 13 ||
+        current.LevelIndex == 14 ||
+        current.LevelIndex == 16 ||
+        current.LevelIndex == 17 ||
+        current.LevelIndex == 19 ||
+        current.LevelIndex == 20 );
 } 
