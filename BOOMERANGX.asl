@@ -1,11 +1,12 @@
-/**/
+/*for Boomerang X version 1.03
+Autosplitter version 1.0 written by Sandou*/
 
 state("BOOMERANG X")
 {
-    int LevelIndex : "UnityPlayer.dll", 0x013A7FE0, 0x84, 0x4, 0xDC, 0x0, 0x44;
-    int EndGem  : "mono-2.0-bdwgc.dll", 0x003A0574, 0xB3C, 0x20, 0x157;
-    int IsIntroPlaying : "mono-2.0-bdwgc.dll", 0x003A0574, 0xB3C, 0x20, 0x1F5;
-    int InMenu : "mono-2.0-bdwgc.dll", 0x003A0574, 0xB44, 0x35C;
+    int LevelIndex : "UnityPlayer.dll",0x019591C0, 0x2E8, 0x60, 0x90, 0x28, 0x84;
+    int EndGem  : "mono-2.0-bdwgc.dll", 0x00497DA8, 0x190, 0x7D0, 0x237;
+    int IsIntroPlaying : "UnityPlayer.dll", 0x019122E8, 0x38, 0x50, 0x8, 0x118, 0x335;
+    int InMenu : "UnityPlayer.dll", 0x019591C0, 0x2E8, 0x30, 0x18, 0x28, 0x6A8;
 }
 
 isLoading
@@ -34,4 +35,5 @@ split
         current.LevelIndex == 17 ||
         current.LevelIndex == 19 ||
         current.LevelIndex == 20 );
-} 
+}   
+
