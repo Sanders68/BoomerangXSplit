@@ -1,4 +1,4 @@
-/*for Boomerang X version 1.03
+/*for Boomerang X version 1.01
 Autosplitter version 1.0 written by Sandou*/
 
 state("BOOMERANG X")
