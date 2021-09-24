@@ -11,7 +11,7 @@ state("BOOMERANG X")
 
 startup
 {
-    settings.Add("IntroDisabled", true, "Intro is disabled (Set an offset timer of -0.25s)");
+    settings.Add("IntroDisabled", true, "Check this if intro is skipped(Don't forget to set a -0.25 offset in your split)");
 }
 
 isLoading
