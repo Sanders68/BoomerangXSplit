@@ -30,7 +30,7 @@ start
 
 split
 {
-    return current.EndGem == 1 && current.EndGem != old.EndGem || current.LevelIndex != old.LevelIndex && 
+    return current.EndGem == 1 && current.EndGem != old.EndGem || current.LevelIndex != old.LevelIndex && old.LevelIndex != 0 &&
     (
         current.LevelIndex == 2 || 
         current.LevelIndex == 4 ||
