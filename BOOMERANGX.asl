@@ -3,7 +3,7 @@ state("Boomerang X") {}
 startup
 {
 	vars.Log = (Action<object>)(output => print("[Boomerang X] " + output));
-	vars.Unity = Assembly.Load(File.ReadAllBytes(@"Components\ULibrary.bin")).CreateInstance("ULibrary.Unity");
+	vars.Unity = Assembly.Load(File.ReadAllBytes(@"Components\UnityASL.bin")).CreateInstance("UnityASL.Unity");
 
 	vars.BossPhase = 0;
 
