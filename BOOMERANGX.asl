@@ -7,6 +7,9 @@ startup
 
 	vars.BossPhase = 0;
 
+	settings.Add("ilMode", false, "Use IL mode (hover for information)");
+	settings.SetToolTip("ilMode", "- Starts the timer when a wave begins\n- Wave splits must still be chosen below\n- Syncs to level timer\n- Prevents starting after loading into level");
+
 	// Formats
 	// - checkpoint splits: level-checkpoint-cp (to be triggered when the checkpoint is entered; rising edge)
 	// - arena splits: level-checkpoint-wave (to be triggered when the wave is beaten; falling edge)
@@ -15,16 +18,16 @@ startup
 	dynamic[,] sett =
 	{
 		{ null, "lvl0", "The Entaccan Coast", true },
-			{ "lvl0", "0-2-cp", "Enter Arena", false },
 			{ "lvl0", "0-a1", "Arena", false },
+				{ "0-a1", "0-2-start", "Start of first wave", false },
 				{ "0-a1", "0-2-0", "Beat Wave 1 (2)", true },
 				{ "0-a1", "0-2-1", "Beat Wave 2 (1)", true },
 				{ "0-a1", "0-2-2", "Beat Wave 3 (2)", true },
 				{ "0-a1", "0-2-3", "Beat Wave 4 (2)", true },
 				{ "0-a1", "0-2-4", "Beat Wave 5 (3)", true },
 			{ "lvl0", "0-3", "The Composer's Garden", false },
-				{ "0-3", "0-3-cp", "Enter Arena", false },
 				{ "0-3", "0-a2", "Arena", false },
+					{ "0-a2", "0-3-start", "Start of first wave", false },
 					{ "0-a2", "0-3-0", "Beat Wave 1 (1)", true },
 					{ "0-a2", "0-3-1", "Beat Wave 2 (2)", true },
 					{ "0-a2", "0-3-2", "Beat Wave 3 (4)", true },
@@ -35,6 +38,7 @@ startup
 			{ "lvl0", "1-finish", "Finish the Level", true },
 		{ null, "lvl2", "Kenak, the Exiled Tyrant", true },
 			{ "lvl2", "2-a", "Arena", false },
+				{ "2-a", "2-5-start", "Start of first wave", false },
 				{ "2-a", "2-5-0", "Beat Wave 1 (4)", true },
 				{ "2-a", "2-5-1", "Beat Wave 2 (4)", true },
 				{ "2-a", "2-5-2", "Beat Wave 3 (5)", true },
@@ -46,6 +50,7 @@ startup
 			{ "lvl2", "3-finish", "Finish the Level", true },
 		{ null, "lvl4", "The Grudge Pit", true },
 			{ "lvl4", "4-a", "Arena", false },
+				{ "4-a", "4-8-start", "Start of first wave", false },
 				{ "4-a", "4-8-0", "Beat Wave 1 (4)", true },
 				{ "4-a", "4-8-1", "Beat Wave 2 (4)", true },
 				{ "4-a", "4-8-2", "Beat Wave 3 (4)", true },
@@ -58,6 +63,7 @@ startup
 			{ "lvl4", "5-finish", "Finish the Level", true },
 		{ null, "lvl6", "The Valley of the First Nymphs", true },
 			{ "lvl6", "6-a", "Arena", false },
+				{ "6-a", "6-11-start", "Start of first wave", false },
 				{ "6-a", "6-11-0", "Beat Wave 1 (10)", true },
 				{ "6-a", "6-11-1", "Beat Wave 2 (7)", true },
 				{ "6-a", "6-11-2", "Beat Wave 3 (6)", true },
@@ -68,6 +74,7 @@ startup
 			{ "lvl6", "6-finish", "Finish the Level", true },
 		{ null, "lvl7", "Yoranwood", true },
 			{ "lvl7", "7-a", "Arena", false },
+				{ "7-a", "7-13-start", "Start of first wave", false },
 				{ "7-a", "7-13-0", "Beat Wave 1 (7)", true },
 				{ "7-a", "7-13-1", "Beat Wave 2 (12)", true },
 				{ "7-a", "7-13-2", "Beat Wave 3 (4)", true },
@@ -77,6 +84,7 @@ startup
 			{ "lvl7", "8-finish", "Finish the Level", true },
 		{ null, "lvl9", "The Poisoned Well", true },
 			{ "lvl9", "9-a", "Arena", false },
+				{ "9-a", "9-16-start", "Start of first wave", false },
 				{ "9-a", "9-16-0", "Beat Wave 1 (1)", true },
 				{ "9-a", "9-16-1", "Beat Wave 2 (4)", true },
 				{ "9-a", "9-16-2", "Beat Wave 3 (3)", true },
@@ -88,6 +96,7 @@ startup
 			{ "lvl9", "10-finish", "Finish the Level", true },
 		{ null, "lvl11", "The Old Vein", true },
 			{ "lvl11", "11-a", "Arena", false },
+				{ "11-a", "11-19-start", "Start of first wave", false },
 				{ "11-a", "11-19-0", "Beat Wave 1 (3)", true },
 				{ "11-a", "11-19-1", "Beat Wave 2 (5)", true },
 				{ "11-a", "11-19-2", "Beat Wave 3 (9)", true },
@@ -98,6 +107,7 @@ startup
 			{ "lvl11", "12-finish", "Finish the Level", true },
 		{ null, "lvl13", "Incursion of the Great Worm", true },
 			{ "lvl13", "13-a", "Arena", false },
+				{ "13-a", "13-22-start", "Start of first wave", false },
 				{ "13-a", "13-22-0", "Beat Wave 1 (2)", true },
 				{ "13-a", "13-22-1", "Beat Wave 2 (6)", true },
 				{ "13-a", "13-22-2", "Beat Wave 3 (6)", true },
@@ -107,6 +117,7 @@ startup
 			{ "lvl13", "13-finish", "Finish the Level", true },
 		{ null, "lvl14", "Atsil's Quarry", true },
 			{ "lvl14", "14-a", "Arena", false },
+				{ "14-a", "14-24-start", "Start of first wave", false },
 				{ "14-a", "14-24-0", "Beat Wave 1 (1)", true },
 				{ "14-a", "14-24-1", "Beat Wave 2 (3)", true },
 				{ "14-a", "14-24-2", "Beat Wave 3 (7)", true },
@@ -118,6 +129,7 @@ startup
 			{ "lvl14", "15-finish", "Finish the Level", true },
 		{ null, "lvl16", "Hall of the Ersatz Feast", true },
 			{ "lvl16", "16-a", "Arena", false },
+				{ "16-a", "16-27-start", "Start of first wave", false },
 				{ "16-a", "16-27-0", "Beat Wave 1 (10)", true },
 				{ "16-a", "16-27-1", "Beat Wave 2 (12)", true },
 				{ "16-a", "16-27-2", "Beat Wave 3 (10)", true },
@@ -129,6 +141,7 @@ startup
 			{ "lvl16", "16-finish", "Finish the Level", true },
 		{ null, "lvl17", "The Grave of the Yoran Legion", true },
 			{ "lvl17", "17-a", "Arena", false },
+				{ "17-a", "17-29-start", "Start of first wave", false },
 				{ "17-a", "17-29-0", "Beat Wave 1 (4)", true },
 				{ "17-a", "17-29-1", "Beat Wave 2 (2)", true },
 				{ "17-a", "17-29-2", "Beat Wave 3 (5)", true },
@@ -140,6 +153,7 @@ startup
 			{ "lvl17", "18-finish", "Finish the Level", true },
 		{ null, "lvl19", "Hall of the Ersatz Feast", true },
 			{ "lvl19", "19-a", "Arena", false },
+				{ "19-a", "19-32-start", "Start of first wave", false },
 				{ "19-a", "19-32-0", "Beat Wave 1 (12)", true },
 				{ "19-a", "19-32-1", "Beat Wave 2 (7)", true },
 				{ "19-a", "19-32-2", "Beat Wave 3 (6)", true },
@@ -150,6 +164,7 @@ startup
 			{ "lvl19", "19-finish", "Finish the Level", true },
 		{ null, "lvl20", "Vashkatar", true },
 			{ "lvl20", "20-a", "Arena", false },
+				{ "20-a", "20-34-start", "Start of first wave", false },
 				{ "20-a", "boss1", "Beat Phase 1", true },
 				{ "20-a", "boss2", "Beat Phase 2", true },
 				{ "20-a", "20-35-cp", "Beat Phase 3", true },
@@ -173,8 +188,11 @@ init
 
 		var sw = helper.GetClass("System", "Stopwatch");
 		var tm = helper.GetClass("Assembly-CSharp", "timer_manager");
-		vars.Unity.Make<long>(tm.Static, tm["global_stopwatch"], sw["elapsed"]).Name = "elapsedTicks";
-		vars.Unity.Make<bool>(tm.Static, tm["global_stopwatch"], sw["is_running"]).Name = "timerRunning";
+		vars.Unity.Make<long>(tm.Static, tm["global_stopwatch"], sw["elapsed"]).Name = "globalElapsedTicks";
+		vars.Unity.Make<bool>(tm.Static, tm["global_stopwatch"], sw["is_running"]).Name = "globalStopwatchRunning";
+		vars.Unity.Make<long>(tm.Static, tm["level_stopwatch"], sw["elapsed"]).Name = "levelElapsedTicks";
+		vars.Unity.Make<bool>(tm.Static, tm["level_stopwatch"], sw["is_running"]).Name = "levelStopwatchRunning";
+		vars.Unity.Make<bool>(tm.Static, tm["level_stopwatch_running"]).Name = "levelTimerRunning";
 
 		var lm = helper.GetClass("Assembly-CSharp", "loading_manager", 1);
 		var lvlm = helper.GetClass("Assembly-CSharp", "level_manager");
@@ -214,8 +232,10 @@ update
 
 	current.AmbienceZone = vars.Unity["ambienceZone"].Current;
 
-	current.ElapsedTicks = vars.Unity["elapsedTicks"].Current;
-	current.TimerRunning = vars.Unity["timerRunning"].Current;
+	current.ElapsedTicks = settings["ilMode"] ? vars.Unity["levelElapsedTicks"].Current : vars.Unity["globalElapsedTicks"].Current;
+	current.TimerRunning = settings["ilMode"] ? vars.Unity["levelStopwatchRunning"].Current : vars.Unity["globalStopwatchRunning"].Current;
+
+	current.LevelTimerRunning = vars.Unity["levelTimerRunning"].Current;
 }
 
 start
@@ -234,11 +254,15 @@ split
 	if (old.Checkpoint != current.Checkpoint)
 		return settings[current.Level + "-" + current.Checkpoint + "-cp"];
 
+	if (!old.LevelTimerRunning && current.LevelTimerRunning)
+		return settings[current.Level + "-" + current.Checkpoint + "-start"];
+
 	if (old.Wave < current.Wave)
 		return settings[current.Level + "-" + current.Checkpoint + "-" + old.Wave];
 
 	// If we're not in the final level, don't continue on to check final level things.
-	if (current.Level != 20) return;
+	if (current.Level != 20)
+		return;
 
 	if (old.EelState == 0 && current.EelState == 3)
 		return settings["boss" + ++vars.BossPhase];
@@ -251,7 +275,11 @@ reset
 {
 	// active_ambience_zone is set to 0 when going to the main menu, but also when breaking the last gem.
 	// To prevent a reset in the latter case, we check whether we're doing that right now.
-	if (current.GemHits >= 7 && current.Level == 20) return;
+	if (current.GemHits >= 7 && current.Level == 20)
+		return;
+
+	if (settings["ilMode"])
+		return !old.LevelTimerRunning && current.LevelTimerRunning;
 
 	return old.AmbienceZone != 0 && current.AmbienceZone == 0;
 }
